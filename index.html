@@ -265,6 +265,15 @@
 				var page_num = $('.top-nav a').length+1;
 				var myScroll = null;
 
+				// 赋予项目列表高度
+				console.log($('.top-idx-list').height());
+				$('.page4 .inner').css('height',$('.top-idx-list').height()+500);
+
+				$(window).resize(function(){
+					console.log($('.top-idx-list').height());
+					$('.page4 .inner').css('height',$('.top-idx-list').height()+500);
+				});
+
 				// 导航监听
 				$('.top-nav a').click(function(){
 					var page_index = parseInt($(this).attr('data-index'));
@@ -413,7 +422,7 @@
 				// 项目列表hover动画
 				$('.top-idx-list li').hover(function(){
 					var index = $(this).attr('data-index');
-					$('body').css('background-image','url(img/item'+index+'.jpg)');
+					$('body').css('background-image','url(img/bg'+index+'.jpg)');
 					$(this).parents('.top-idx-list').addClass('js_indexHover');
 					$('.top-idx-bg').addClass('active');
 				},function(){

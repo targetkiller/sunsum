@@ -966,6 +966,8 @@ header a {
 .detail .desp-wrap{
     position: relative;
     width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
     padding: 150px 0;
     background-color: #fff;
     line-height: 1.3;
@@ -997,8 +999,10 @@ header a {
     font-size: 18px;
 }
 .detail .img-wrap img{
-    display: block;
     position: relative;
+   max-width: 1500px;
+    display: block;
+    margin: 0 auto;
 }
 .detail .next-wrap{
     font-family: BrandonText-Regular,"游ゴシック体","Yu Gothic",YuGothic,"Helvetica Neue",Helvetica,Arial,sans-serif;.
@@ -1171,6 +1175,9 @@ header a {
 .about .desp-wrap{
     position: relative;
     width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
     padding: 150px 0 0 0;
     background-color: #fff;
     line-height: 1.3;
@@ -1212,6 +1219,8 @@ header a {
 .about .cooperation-wrap{
     position: relative;
     padding: 150px 0 0 0;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 .about .join-wrap .left,
 .about .cooperation-wrap .left{
@@ -1256,7 +1265,11 @@ header a {
     display: inline-block;
 }
 .about .img-wrap img{
+    width: 100%;
+    height: auto;
+    max-width: 1500px;
     display: block;
+    margin: 0 auto;
 }
 .about .join-wrap .right{
     float: right;
@@ -1268,12 +1281,13 @@ header a {
     font-size: 18px;
 }
 .about .contact-wrap{
-    margin-bottom: 150px;
+    margin: 0 auto 150px auto;
 }
 .about .contact-wrap .location{
     width: 668px;
     text-align: right;
     font-size: 16px;
+    margin-left: 20px;
 }
 .about .contact-wrap .location img{
     width: 668px;
@@ -1305,7 +1319,7 @@ header a {
     -webkit-animation: company-occur .4s ease-in 1 both;
             animation: company-occur .4s ease-in 1 both;
 }
-.about .cooperation-wrap .company-list li:nth-child(1){-webkit-animation-delay:0ms;animation-delay:0ms;display: block;}
+.about .cooperation-wrap .company-list li:nth-child(1){-webkit-animation-delay:0ms;animation-delay:0ms;}
 .about .cooperation-wrap .company-list li:nth-child(2){-webkit-animation-delay:100ms;animation-delay:100ms;}
 .about .cooperation-wrap .company-list li:nth-child(3){-webkit-animation-delay:200ms;animation-delay:200ms;}
 .about .cooperation-wrap .company-list li:nth-child(4){-webkit-animation-delay:300ms;animation-delay:300ms;}
@@ -1315,6 +1329,16 @@ header a {
 .about .cooperation-wrap .company-list li:nth-child(8){-webkit-animation-delay:700ms;animation-delay:700ms;}
 .about .cooperation-wrap .company-list li:nth-child(9){-webkit-animation-delay:800ms;animation-delay:800ms;}
 .about .cooperation-wrap .company-list li:nth-child(10){-webkit-animation-delay:900ms;animation-delay:900ms;}
+.about .cooperation-wrap .company-list li:nth-child(11){-webkit-animation-delay:1000ms;animation-delay:1000ms;}
+.about .cooperation-wrap .company-list li:nth-child(12){-webkit-animation-delay:1100ms;animation-delay:1100ms;}
+.about .cooperation-wrap .company-list li:nth-child(13){-webkit-animation-delay:1200ms;animation-delay:1200ms;}
+.about .cooperation-wrap .company-list li:nth-child(14){-webkit-animation-delay:1300ms;animation-delay:1300ms;}
+.about .cooperation-wrap .company-list li:nth-child(15){-webkit-animation-delay:1400ms;animation-delay:1400ms;}
+.about .cooperation-wrap .company-list li:nth-child(16){-webkit-animation-delay:1500ms;animation-delay:1500ms;}
+.about .cooperation-wrap .company-list li:nth-child(17){-webkit-animation-delay:1600ms;animation-delay:1600ms;}
+.about .cooperation-wrap .company-list li:nth-child(18){-webkit-animation-delay:1700ms;animation-delay:1700ms;}
+.about .cooperation-wrap .company-list li:nth-child(19){-webkit-animation-delay:1800ms;animation-delay:1800ms;}
+.about .cooperation-wrap .company-list li:nth-child(20){-webkit-animation-delay:1900ms;animation-delay:1900ms;}
 @-webkit-keyframes company-occur{
     0%{
         -webkit-transform:translate3d(0,-20px,0);

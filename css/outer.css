@@ -1511,8 +1511,8 @@ html .js_showIndexContents .top-aboutBtn.js_finishShow:hover a:after,html .js_sh
     opacity: 0
 }
 
-.js_hideIndexWorks .top-idx-list-item .indexImg,.js_indexHover .js_showFinish .indexImg {
-    opacity: 0!important
+.js_hideIndexWorks .top-idx-list-item .indexImg,.js_indexHover.js_showFinish .indexImg {
+    /*opacity: 0!important*/
 }
 
 .top-head-link,.top-head-reel,.top-pickup-link,.top-pickup-reel {
@@ -1607,37 +1607,44 @@ html .top-head-link.js_showLink.js_finishLink:hover:after,html .top-head-reel.js
     transition-timing-function: cubic-bezier(.59,.01,.37,.99)
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.leftCycle .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle .indexLineR,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle .indexLineT,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle .indexLineR,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle .indexLineT {
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle .indexLineB,
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle .indexLineL,
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle .indexLineR,
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle .indexLineT,
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle .indexLineB,
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle .indexLineL,
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle .indexLineR,
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle .indexLineT {
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
     transition-duration: .3s
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineT {
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineB,.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineT {
     transition-delay: .3s
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineR,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineT {
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineL,.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stLR .indexLineR,.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineB,.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineT {
     transition-delay: 0s
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineR,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineT {
+.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineL,.js_indexHover.js_showFinish.top-idx-list-item.leftCycle.stTB .indexLineR,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineB,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineT {
     transition-delay: .3s
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineR,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineB,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineT {
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineL,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stLR .indexLineR,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineB,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineT {
     transition-delay: 0s
 }
 
-.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineL,.js_indexHover .js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineR {
+.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineL,.js_indexHover.js_showFinish.top-idx-list-item.rightCycle.stTB .indexLineR {
     transition-delay: .3s
 }
 
-.js_indexHover .js_showFinish .indexTxt {
+.js_indexHover.js_showFinish .indexTxt {
     mix-blend-mode: normal!important
 }
 
-.js_indexHover .js_showFinish .indexProject-client,.js_indexHover .js_showFinish .indexProject-title {
+.js_indexHover.js_showFinish .indexProject-client,.js_indexHover.js_showFinish .indexProject-title {
     color: #fff
 }
 
@@ -1720,7 +1727,7 @@ html .top-head-link.js_showLink.js_finishLink:hover:after,html .top-head-reel.js
     overflow: hidden
 }
 
-.js_hideIndexWorks .top-idx-bg,.js_indexHover .top-idx-bg {
+.js_hideIndexWorks .top-idx-bg,.js_indexHover.top-idx-bg {
     opacity: 0
 }
 
@@ -1990,7 +1997,7 @@ html .top-head-link.js_showLink.js_finishLink:hover:after,html .top-head-reel.js
 
 .top-idx-list-item .indexLineB,.top-idx-list-item .indexLineL,.top-idx-list-item .indexLineR,.top-idx-list-item .indexLineT {
     position: absolute;
-    background-color: #fff;
+    background-color: #000;
     transition: -webkit-transform;
     transition: transform;
     transition-duration: 0s;

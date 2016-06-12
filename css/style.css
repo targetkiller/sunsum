@@ -68,6 +68,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     z-index: 2;
+    background-color: #fff;
 }
 .page1{
     background-color: #fff;
@@ -79,6 +80,9 @@ body{
     background-image: url(../img/bg3.jpg);
 }
 .page4{
+    background-image: url(../img/bg4.jpg);
+}
+.page5{
     top: 0;
     left: 0;
     right: 0;
@@ -95,10 +99,10 @@ body{
     background-color: rgba(0,0,0,0.7);
 }
 .page1 .inner,
-.page4 .inner{
+.page5 .inner{
     background: none;
 }
-.page4 .inner{
+.page5 .inner{
     width: 100%;
     height: 2000px;
 }
@@ -106,8 +110,8 @@ body{
 .index-1 .top-workLineT,
 /*.index-1 .top-head-link:after,*/
 .index-1 .top-aboutBtn a:after,
-.index-4 .top-workLineT,
-.index-4 .top-aboutBtn a:after{
+.index-5 .top-workLineT,
+.index-5 .top-aboutBtn a:after{
     transition: all .4s ease-in;
     background-color: #000;
 }
@@ -145,25 +149,25 @@ body{
 /*.index-1 .top-head-link,*/
 .index-1 .top-aboutBtn a,
 .index-1 .top-nav,
-.index-4 .top-aboutBtn a,
-.index-4 .top-nav{
+.index-5 .top-aboutBtn a,
+.index-5 .top-nav{
     transition: all .4s ease-in;
     color: #000;    
 }
 .index-1 .icon-wrap svg path,
-.index-4 .icon-wrap svg path{
+.index-5 .icon-wrap svg path{
     transition: all .4s ease-in;
     stroke: #000;
 }
 .index-1 .icon-wrap-more svg path,
-.index-4 .icon-wrap-more svg path{
+.index-5 .icon-wrap-more svg path{
     transition: all .4s ease-in;
     fill: #000!important;
 }
-.index-4 .top-workLineT,
-.index-4 .top-workLineB,
-.index-4 .top-head-link,
-.index-4 .top-head-link:after{
+.index-5 .top-workLineT,
+.index-5 .top-workLineB,
+.index-5 .top-head-link,
+.index-5 .top-head-link:after{
     display: none;
 }
 
@@ -507,11 +511,11 @@ body{
     fill: #fff;
 }
 .index-1 .logo path,
-.index-4 .logo path{
+.index-5 .logo path{
     fill: #000;
 }
 .index-1 .logo:hover path,
-.index-4 .logo:hover path{
+.index-5 .logo:hover path{
     fill: #ff9953;
 }
 .body-about .logo path,
@@ -606,8 +610,8 @@ header a {
     display: inline-block;
     vertical-align: top;
     position: relative;
-    top: 17px;
-    left: -1em;
+    top: 8px;
+    left: 1em;
 }
 .btn-expand{
     cursor: pointer;
@@ -694,21 +698,14 @@ header a {
     text-align: center;
     position: relative;
     top: 50%;
-    padding-top: -10px;
-    padding-right: 100px;
 }
-.page .expand-text p{
-    font-size: 14px;
-    width: 40px;
-    display: inline-block;
-    color: #fff;
-    vertical-align: top;
+.page .expand-text{
     transition: all ease-in .4s;
     -webkit-transform: translateY(-30px);
             transform: translateY(-30px);
     opacity: 0;
 }
-.page.expand .expand-text p{
+.page.expand .expand-text{
     opacity: 1;
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
@@ -1408,6 +1405,54 @@ header a {
     font-family: simsun, PingFang SC, Microsoft yahei;
 }
 
+/* 文字改切图 */
+.page1 .text{
+    text-indent: -9999px;
+    width: 781px;
+    height: 39px;
+    background-image: url(../img/slice/text1.png);
+}
+.page2 .text{
+    text-indent: -9999px;
+    width: 356px;
+    height: 37px;
+    background-image: url(../img/slice/text2.png);
+}
+.page3 .text{
+    text-indent: -9999px;
+    width: 268px;
+    height: 37px;
+    background-image: url(../img/slice/text3.png);
+}
+.page4 .text{
+    text-indent: -9999px;
+    width: 357px;
+    height: 38px;
+    background-image: url(../img/slice/text4.png);
+}
+.page2 .expand-text{
+    text-indent: -9999px;
+    width: 269px;
+    height: 333px;
+    background-image: url(../img/slice/expand2.png);
+}
+.page3 .expand-text{
+    text-indent: -9999px;
+    width: 269px;
+    height: 333px;
+    background-image: url(../img/slice/expand3.png);
+}
+.page4 .expand-text{
+    text-indent: -9999px;
+    width: 268px;
+    height: 313px;
+    background-image: url(../img/slice/expand4.png);
+}
+.page1 .icon-expand .icon-inner,
+.page1 .title .icon-expand .icon-inner:after{
+    background-color: #000!important;
+}
+
 @media screen and (max-width: 1024px){
     .top-idx-list-item{
         width: 300px;
@@ -1429,6 +1474,34 @@ header a {
     }
     .about .desp-wrap .right small{
         background-image: url(../img/slice/about-sunsum@2x.png);
+        background-size: 100% 100%;
+    }
+    .page1 .text{
+        background-image: url(../img/slice/text1@2x.png);
+        background-size: 100% 100%;
+    }
+    .page2 .text{
+        background-image: url(../img/slice/text2@2x.png);
+        background-size: 100% 100%;
+    }
+    .page3 .text{
+        background-image: url(../img/slice/text3@2x.png);
+        background-size: 100% 100%;
+    }
+    .page4 .text{
+        background-image: url(../img/slice/text4@2x.png);
+        background-size: 100% 100%;
+    }
+    .page2 .expand-text{
+        background-image: url(../img/slice/expand2@2x.png);
+        background-size: 100% 100%;
+    }
+    .page3 .expand-text{
+        background-image: url(../img/slice/expand3@2x.png);
+        background-size: 100% 100%;
+    }
+    .page4 .expand-text{
+        background-image: url(../img/slice/expand4@2x.png);
         background-size: 100% 100%;
     }
 }

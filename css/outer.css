@@ -1223,7 +1223,11 @@ header a {
     letter-spacing: .2em;
     text-decoration: none;
     padding-left: 53px;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #fff
+>>>>>>> f388ea7a969001a64ca292399fa7ff9ffd59e38f
 }
 
 .top-head-spproject,.top-head-spreel span {

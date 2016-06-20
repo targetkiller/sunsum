@@ -25,7 +25,7 @@ $(function () {
 
 		$('.about .title-wrap').css({'width':BROWSER_WIDTH,'height':BROWSER_HEIGHT});
 		$('.detail .title-wrap').css({'width':BROWSER_WIDTH,'height':BROWSER_HEIGHT});
-		$('.page5 .inner').css('height',$('.top-idx-list').height()+500);
+		$('.page5 .inner').css('height',$('.top-idx-list').height()+400);
 		$('.container').css({
 			'-webkit-transform':'translate3d(0,-'+parseInt(NAVIGATION_INDEX-1)*BROWSER_HEIGHT+'px,0)',
 			'transform':'translate3d(0,-'+parseInt(NAVIGATION_INDEX-1)*BROWSER_HEIGHT+'px,0)'
@@ -38,6 +38,16 @@ $(function () {
 		var page_index = parseInt($(this).attr('data-index'));
 		var page_now_index = NAVIGATION_INDEX;
 		var direction = page_now_index > page_index? 1:-1;
+
+		// 若从列表页往其他页面导航，则解放switch
+		if(page_index!=page_num-1 && page_now_index==page_num-1){
+			FLAG_SWITCH_SCROLL = false;
+			clearHash();
+			FLAG_IS_MOVING = true;
+			setTimeout(function(){
+				FLAG_IS_MOVING = false;
+			},1400);
+		}
 
 		$(this).addClass('icon-wrap-active')
 			   .siblings()
@@ -54,18 +64,18 @@ $(function () {
 	function bodyBindMouse(){
 		$('body').mousewheel(function(e) {
 			// 把列表页布局放在第一次跳转，是为了避免获取列表高度出问题
-			if(!isLayoutListPage){
-				$('.page5 .inner').css('height',$('.top-idx-list').height()+500);
+			if(isLayoutListPage==false){
+				$('.page5 .inner').css('height',$('.top-idx-list').height()+400);
 				isLayoutListPage = true;
 			}
 
 			// 如果是项目列表页，停止监听
-			if(FLAG_SWITCH_SCROLL){return;}
+			if(FLAG_SWITCH_SCROLL==true){return;}
 
 			e.preventDefault();
 
 			// 如果正在上一个滚动，则暂时抛弃其他滚动，1400ms后可以接受其他滚动（解决mac下trackpad问题）
-			if(FLAG_IS_MOVING){return;}
+			if(FLAG_IS_MOVING==true){return;}
 			else{FLAG_IS_MOVING = true;}
 			setTimeout(function(){
 				FLAG_IS_MOVING = false;
@@ -101,29 +111,61 @@ $(function () {
 			location.hash = "";
 		}	
 	}
+	// 列表页返回
+	function backToScrollPage(){
+		FLAG_SWITCH_SCROLL = false;
 
-	// page5页切换绑定监听
+		// 跳回上一页
+		Jump_to_page(page_num-2,-1);
+		FLAG_IS_MOVING = true;
+		setTimeout(function(){
+			FLAG_IS_MOVING = false;
+		},1400);
+
+		clearHash();
+	}
+
+	// 列表页页切换绑定监听
 	function Switch_to_scroll(){
 		FLAG_SWITCH_SCROLL = true;
+		FLAG_SCROLL_TO_END = false;
+		var last_y = -1;
 
-		setTimeout(function(){
-			if(myScroll == null){
-				myScroll = new IScroll('#scrollPage',{
-					scrollbars: false,
-					mouseWheel: true,
-					probeType: 3
-				});
-			}
-
-			myScroll.on('scroll', function(){
-				console.log(this.y);
-				if(parseInt(this.y) > -1){
-					FLAG_SWITCH_SCROLL = false;
-					clearHash();
-					Jump_to_page(page_num-2,-1);
-				}
+		if(myScroll == null){
+			myScroll = new IScroll('#scrollPage',{
+				scrollbars: false,
+				mouseWheel: true,
+				probeType: 2
 			});
-		},1400);
+
+			// myScroll.on('scroll', function(){
+			// 	if(parseInt(this.y)==0 && parseInt(this.y)-parseInt(last_y)>0 && FLAG_SCROLL_TO_END==true){
+			// 		FLAG_SCROLL_TO_END = false;
+			// 		FLAG_SWITCH_SCROLL = false;
+			// 		clearHash();
+
+			// 		// 跳回上一页
+			// 		Jump_to_page(page_num-2,-1);
+			// 		FLAG_IS_MOVING = true;
+			// 		setTimeout(function(){
+			// 			FLAG_IS_MOVING = false;
+			// 		},1400);
+			// 	}
+			// });
+
+			// myScroll.on('scrollEnd', function(){
+			// 	if(this.y == 0){
+			// 		last_y = -1;
+			// 		FLAG_SCROLL_TO_END = true;
+			// 	}
+			// 	else{
+			// 		last_y = this.y;
+			// 	}
+			// });
+		}
+		else{
+			// myScroll.scrollTo(0, -1);
+		}
 	}
 
 	// 到达列表页面，检查hash
@@ -154,14 +196,16 @@ $(function () {
 					hash_index = 3;
 					break;
 				default:
-					$('.top-idx-list-item').removeClass('hide');
+					$('.top-idx-list-item').hide(0);
+					$('.top-idx-list-item').show(0);
+					hash_index = 0;
 					break;
 			}
 			$('.top-idx-list').show();
 			setTimeout(function(){
 				$('.top-idx-list').css('opacity',1);
 			},100);
-			var $son = $(".js_filterBtn[data-cate='"+hash_index+"'");
+			var $son = $(".js_filterBtn[data-cate='"+hash_index+"']");
 			var $parent = $son.parent('li');
 			$son.addClass('current');
 			$parent.siblings().find('a').removeClass('current');
@@ -175,6 +219,9 @@ $(function () {
 			// 进入hash页
 			if(hash == '#about'){
 				$('.js_aboutus').click();
+			}
+			else{
+				clearHash();
 			}
 		}
 		resetPage();
@@ -190,6 +237,8 @@ $(function () {
 
 	// 跳到目标页面
 	function Jump_to_page(page_index,direction){
+		NAVIGATION_INDEX = page_index;
+
 		$('body').attr('class','index-'+page_index);
 
 		// 滑动页面
@@ -206,13 +255,14 @@ $(function () {
 			   .siblings()
 			   .removeClass('icon-wrap-active');
 
-		$('.page'+page_index).addClass('active').siblings().removeClass('active');
+		$('.page').removeClass('active');
+		$('.page'+page_index).addClass('active');
 
 		// 到列表页后调用hash
 		if(page_index==page_num-1){
 			Switch_to_scroll();
-			checkPage5Hash();
 		}
+		checkPage5Hash();
 	}
 
 	// 线动画
@@ -268,6 +318,11 @@ $(function () {
 		}
 		return -1;
 	}
+
+	// 列表返回按钮
+	$('#btn-backToScroll').click(function(){
+		backToScrollPage();
+	});
 
 	// 展开按钮内容
 	$('.btn-expand').hover(function(){
@@ -332,10 +387,8 @@ $(function () {
 
 		// scroll监听
 		$('body').mousewheel(function(){
-			if($(this).scrollTop()>1200){
-				setTimeout(function(){
-					$('.cooperation-wrap .company-list').addClass('active');
-				},200);
+			if($(this).scrollTop()>900){
+				$('.cooperation-wrap .company-list').addClass('active');
 			}
 		})
 	});
@@ -366,7 +419,7 @@ $(function () {
 	$('.about .title-wrap h1').text($('.about .title-wrap h1').text().split('').join('\xa0\xa0'));
 
 	// 强制复位，检查哈希跳转
-	checkInitHash();
+	checkInitHash(); 
 	bodyBindMouse();
 
 	// 获取项目列表
@@ -446,7 +499,7 @@ $(function () {
 		});
 		
 		setTimeout(function(){
-			$('.page5 .inner').css('height',$('.top-idx-list').height()+500);
+			$('.page5 .inner').css('height',$('.top-idx-list').height()+400);
 			isLayoutListPage = true;
 		},1500);
 	});

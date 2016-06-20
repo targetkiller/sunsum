@@ -57,6 +57,7 @@ body{
     bottom: 0;
     width: 100%;
     height: 100%;
+    -webkit-transition:all ease-in-out .6s;
     transition:all ease-in-out .6s;
     z-index: 3;
 }
@@ -91,6 +92,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
+    -webkit-transition:all .2s ease-in;
     transition:all .2s ease-in;
 }
 .page .inner{
@@ -143,6 +145,7 @@ body{
 }
 .body-detail .js_allproject,
 .body-about .js_leaveabout{
+    -webkit-mix-blend-mode: exclusion;
     mix-blend-mode: exclusion;
 }
 .body-detail .top-workLineT,
@@ -156,16 +159,19 @@ body{
 .index-1 .top-nav,
 .index-5 .top-aboutBtn a,
 .index-5 .top-nav{
+    -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in;
     color: #000;    
 }
 .index-1 .icon-wrap svg path,
 .index-5 .icon-wrap svg path{
+    -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in;
     stroke: #000;
 }
 .index-1 .icon-wrap-more svg path,
 .index-5 .icon-wrap-more svg path{
+    -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in;
     fill: #000!important;
 }
@@ -482,8 +488,8 @@ body{
 @-webkit-keyframes texture{
     0%{
         opacity: 0;
-        -webkit-transform:scale(0.4);
-                transform:scale(0.4);
+        -webkit-transform:scale(0.5);
+                transform:scale(0.5);
     }
     100%{
         opacity: 1;
@@ -494,8 +500,8 @@ body{
 @keyframes texture{
     0%{
         opacity: 0;
-        -webkit-transform:scale(0.4);
-                transform:scale(0.4);
+        -webkit-transform:scale(0.5);
+                transform:scale(0.5);
     }
     100%{
         opacity: 1;
@@ -509,6 +515,7 @@ body{
     z-index: 200;
 }
 .logo path{
+    -webkit-transition: fill .2s ease-in;
     transition: fill .2s ease-in;
     fill: #ff9953;
 }
@@ -569,13 +576,14 @@ header a {
 }
 
 .texture{
-    width: 299px;
-    height: 328px;
-    background-image: url(../img/slice/logo-texture.png);
+    width: 190px;
+    height: 299px;
+    background-image: url(../img/logo-texture.gif);
+    background-size: 100% 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -164px 0 0 -150px;
+    margin: -149px 0 0 -95px;
 }
 .page .title{
     width: 80%;
@@ -1609,10 +1617,6 @@ header a {
 @media only screen and (-webkit-min-device-pixel-ratio:1.25),only screen and (min-resolution:120dpi),only screen and (min-resolution:1.25dppx){
     .sunsum{
         background-image: url(../img/slice/sunsum@2x.png);
-        background-size: 100% 100%;
-    }
-    .texture{
-        background-image: url(../img/slice/logo-texture@2x.png);
         background-size: 100% 100%;
     }
     .about .title-wrap .about-logo{

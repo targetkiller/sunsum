@@ -577,13 +577,13 @@ header a {
 
 .texture{
     width: 190px;
-    height: 299px;
+    height: 249px;
     background-image: url(../img/logo-texture.gif);
     background-size: 100% 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -149px 0 0 -95px;
+    margin: -129px 0 0 -95px;
 }
 .page .title{
     width: 80%;
@@ -717,9 +717,11 @@ header a {
     transition: all ease-in .4s;
     -webkit-transform: translateY(-30px);
             transform: translateY(-30px);
+    visibility: hidden;
     opacity: 0;
 }
 .page.expand .expand-text{
+    visibility: visible;
     opacity: 1;
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
